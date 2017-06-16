@@ -16,7 +16,7 @@ export function initialize() {
     throw new Ember.Error('StripeService: Missing Stripe key, please set `ENV.stripe.publishableKey` in config.environment.js');
   }
 
-  if (typeof FastBoot !== 'undefined' && typeof Stripe === 'undefined') {
+  if (typeof FastBoot !== 'undefined' || typeof Stripe === 'undefined') {
     window.Stripe = StripeMock;
   }
 
